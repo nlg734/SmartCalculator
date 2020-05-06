@@ -11,6 +11,12 @@ while not to_exit:
             to_exit = True
             print("Bye!")
             break
+        if(nums[0] == "/help"):
+            print("The program calculates the sum of numbers")
+            continue
         print(nums[0])
-    elif len(nums) == 2:
-        print(int(nums[0]) + int(nums[1]))
+    elif len(nums) != 0:
+        summation = 0
+        for x in nums:
+            summation += int(x)
+        print(summation)
