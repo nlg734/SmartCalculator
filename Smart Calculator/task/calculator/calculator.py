@@ -17,28 +17,41 @@ def find_operation(op):
 
 
 def get_total(equation):
-    result = int(equation[0])
-    for i in range(1, len(equation), 2):
-        operation = find_operation(equation[i])
-        if operation == "+":
-            result += int(equation[i + 1])
-        else:
-            result -= int(equation[i + 1])
+    result = False
+    try:
+        result = int(equation[0])
+    except TypeError:
+        print("Invalid expression")
+    try:
+        for i in range(1, len(equation), 2):
+            operation = find_operation(equation[i])
+            if operation == "+":
+                result += int(equation[i + 1])
+            else:
+                result -= int(equation[i + 1])
+    except IndexError:
+        print("Invalid expression")
+        result = False
     return result
 
 
-to_exit = False
-while not to_exit:
+while True:
     nums = input().split()
     if len(nums) == 1:
         if nums[0] == "/exit":
-            to_exit = True
             print("Bye!")
             break
         if nums[0] == "/help":
             print("The program can add and subtract")
             continue
-        print(nums[0])
+        if "/" == nums[0][0]:
+            print("Unknown command")
+            continue
+        try:
+            print(int(nums[0]))
+        except ValueError:
+            print("Invalid expression")
     elif len(nums) != 0:
         total = get_total(nums)
-        print(total)
+        if type(total) is int:
+            print(total)
