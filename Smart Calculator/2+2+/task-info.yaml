@@ -31,6 +31,17 @@ files:
     if __name__ == '__main__':
         CalcTest("calculator.calculator").run_tests()
   learner_created: false
+- name: calculator/calculator.py
+  visible: true
+  text: |
+    # calculator.py
+    # written by Natasha Graham
+    # JetBrains and Hyperskills Python course
+
+    nums = input().split()
+
+    print(int(nums[0]) + int(nums[1]))
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/74/stages/410/implement
-status: Unchecked
-record: -1
+status: Solved
+record: 2
